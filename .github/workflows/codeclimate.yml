@@ -1,18 +1,28 @@
 name: Code Climate Analysis
-run-name: Analisis del code
+run-name: Analysis of code
 on:
   push:
     branches:
       - main
+
 jobs:
   analysis:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout respository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run Code Climate analysis
-        uses: codeclimate-action/codeclimate-action@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          token: ${{ secrets.CODECLIMATE_TOKEN }}
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Code Climate analysis
+        uses: codeclimate/codeclimate-action@v0.83.0
+        with:
+          github_token: ${{ secrets.CODE_CLIMATE_TOKEN }}
+          repo_token: ${{ secrets.CODECLIMATE_TOKEN }}
