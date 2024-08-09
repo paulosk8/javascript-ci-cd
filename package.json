@@ -2,8 +2,8 @@
     "name": "javascript-ci-cd",
     "version": "1.0.0",
     "scripts": {
-      "test": "jest",
-      "coverage": "codeclimate-test-reporter < coverage/lcov.info"
+      "test": "jest --coverage",
+      "coverage": "--coverage && codeclimate-test-reporter < coverage/lcov.info"
     },
     "devDependencies": {
       "jest": "^29.7.0",
