@@ -1,4 +1,4 @@
 const sum = require('./index');
-test('Suma los valores 1 + 2 es igual a 3', () => {
-  expect(sum(1, 2)).toBe(3);
+test('Suma los valores 4 + 3 es igual a 7', () => {
+  expect(sum(4, 3)).toBe(7);
 });
